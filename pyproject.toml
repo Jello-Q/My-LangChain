@@ -45,6 +45,7 @@ python_version = "3.13"
 strict = true
 files = ["my_langchain", "tests"]
 show_error_codes = true
+plugins = ["pydantic.mypy"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

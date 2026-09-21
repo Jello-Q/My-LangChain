@@ -97,7 +97,7 @@ My-LangChain/
 
 **目标**：建立可安装、可测试、可 lint 的 Python 包骨架。
 
-- [ ] 创建 `pyproject.toml`（PEP 621）
+- [x] 创建 `pyproject.toml`（PEP 621）
   - `[project]` name=`my-langchain`，`requires-python = ">=3.13"`
   - 运行时依赖：`pydantic>=2`、`httpx`
   - `[project.optional-dependencies].dev`：`pytest`、`pytest-asyncio`、`ruff`、`mypy`
@@ -105,13 +105,13 @@ My-LangChain/
   - `[tool.mypy]` `python_version="3.13"`、`strict` 相关项
   - `[tool.pytest.ini_options]` `testpaths=["tests"]`、`asyncio_mode="auto"`
   - `[tool.pytest.ini_options].markers` 注册 `integration`
-- [ ] 创建 `my_langchain/__init__.py`，导出 `__version__`
-- [ ] 创建 `my_langchain/core/__init__.py`
-- [ ] 创建 `my_langchain/core/exceptions.py`
+- [x] 创建 `my_langchain/__init__.py`，导出 `__version__`
+- [x] 创建 `my_langchain/core/__init__.py`
+- [x] 创建 `my_langchain/core/exceptions.py`
   - `MyLangChainError`（基类），子类：`ProviderError`、`ParsingError`、
     `ConfigurationError`、`InputValidationError`
-- [ ] `tests/__init__.py` 与 `tests/core/test_exceptions.py`
-- [ ] 在 `README.md` 补充安装与运行说明（中文）
+- [x] `tests/__init__.py` 与 `tests/core/test_exceptions.py`
+- [x] 在 `README.md` 补充安装与运行说明（中文）
 
 **验收**
 - `pip install -e ".[dev]"` 成功
@@ -127,24 +127,24 @@ My-LangChain/
 **关键概念**：Message 不可变数据结构、`content` 与 `additional_kwargs`、
 消息类型标识、chunk 合并、`PromptValue` 的双态（string / messages）。
 
-- [ ] `my_langchain/messages/__init__.py`
-- [ ] `my_langchain/messages/base.py`
+- [x] `my_langchain/messages/__init__.py`
+- [x] `my_langchain/messages/base.py`
   - `BaseMessage`（`content`、`additional_kwargs`、`response_metadata`、`id`、`type`）
   - `HumanMessage`、`AIMessage`、`SystemMessage`、`FunctionMessage`、`ToolMessage`
   - `ChatMessage(role=...)`
   - `message_to_dict()` / `messages_from_dict()`
-- [ ] `my_langchain/messages/chunk.py`
+- [x] `my_langchain/messages/chunk.py`
   - `BaseMessageChunk`、`AIMessageChunk`，实现 `__add__`（chunk 级合并）
-- [ ] `my_langchain/prompts/prompt_values.py`
+- [x] `my_langchain/prompts/prompt_values.py`
   - `PromptValue`（`to_string`/`to_messages`）、`StringPromptValue`、`ChatPromptValue`
-- [ ] `my_langchain/prompts/prompt_template.py`
+- [x] `my_langchain/prompts/prompt_template.py`
   - `PromptTemplate`（`from_template`、`format`、输入变量校验）
-- [ ] `my_langchain/prompts/chat.py`
+- [x] `my_langchain/prompts/chat.py`
   - `ChatPromptTemplate`、`MessagesPlaceholder`、`from_messages`、`format_messages`
   - `partial()` 支持
-- [ ] `my_langchain/prompts/few_shot.py`
+- [x] `my_langchain/prompts/few_shot.py`
   - `FewShotPromptTemplate`、`FewShotChatMessagePromptTemplate`
-- [ ] `tests/messages/test_base.py`、`tests/prompts/test_chat.py` 等
+- [x] `tests/messages/test_base.py`、`tests/prompts/test_chat.py` 等
 
 **验收**
 - 用 `ChatPromptTemplate` 把 `{topic}`/`{history}` 渲染为正确的消息列表
@@ -319,8 +319,8 @@ My-LangChain/
 
 ## 4. 里程碑验收总表
 
-- [ ] **M1**：`pip install -e ".[dev]"` 后 `ruff`/`mypy`/`pytest` 全绿（P0）
-- [ ] **M2**：模板 → 消息渲染正确（P1）
+- [x] **M1**：`pip install -e ".[dev]"` 后 `ruff`/`mypy`/`pytest` 全绿（P0）
+- [x] **M2**：模板 → 消息渲染正确（P1）
 - [ ] **M3**：`prompt | model | parser` 四态（sync/async/stream/batch）端到端（P2–P4）
 - [ ] **M4**：多步链 + Memory 多轮对话（P5–P6）
 - [ ] **M5**：全链路回调/事件流可观测（P7）
